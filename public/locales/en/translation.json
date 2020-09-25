@@ -1,0 +1,5 @@
+{
+    "target": "src/App.js",
+    "editAndSaveToReload": "Edit `$t(target)` and save to reload.",
+    "learnReact": "Learn $t(common:react)"
+}

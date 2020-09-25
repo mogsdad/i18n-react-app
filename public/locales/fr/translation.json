@@ -1,0 +1,5 @@
+{
+    "target": "src/App.js",
+    "editAndSaveToReload": "Modifiez `$t(target)` et enregistrez-le pour recharger.",
+    "learnReact": "Apprendre React"
+}

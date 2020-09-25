@@ -1,4 +1,31 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Localization: i18n + Markdown
+
+In this project, the basic React app created via the [Create React App](https://github.com/facebook/create-react-app) has been modified for out-of-the-box localization support.
+
+Key changes to support this included:
+* Installation of packages for i18next (`i18next` and `react-i18next`), to load translations over http (`i18next-http-backend`), and to detect the locale set in the browser (`i18next-browser-languagedetector`).
+
+  The initialization and config of i18next is encapsulated into `/i18n.js`.
+  That gets `import`ed by `App.js` from within a `<Suspense>` component to ensure initialization is completed before the App proceeds.
+
+  Start with the [react-i18next documentation](https://react.i18next.com/) for additional details.
+
+* Installation of [`react-markdown`](https://github.com/rexxars/react-markdown), to provide a simple and elegant way to embed style info in translation strings.
+  (The [`react-remarkable`](https://github.com/acdlite/react-remarkable) package was also considered for this purpose, but it is not being actively supported.)
+
+  It is feasible to embed HTML tags into translation strings, but an additional operation is then required to parse the strings and extract the tags to react nodes.
+  That approach would increase code complexity.
+
+### Translation files
+
+All translations are hosted in the `/public/locales` folder.
+Each supported language has its own folder named according to the [ISO 639-1 code](https://en.wikipedia.org/wiki/ISO_639-1) for the bare language.
+(Bare language locale support is controlled by the `"languageOnly"` value for `i18nOptions.load`.)
+
+Strings that are the same in all languages use the `"common"` i18next namespace.
+You'll notice that only the English version of this file is populated with actual strings, which allows fallback behavior to provide content in other languages.
+
+Strings that are to be translated appear in the `"translation"` i18next namespace, so the `translation.json` file is required in each supported language.
 
 ## Available Scripts
 
